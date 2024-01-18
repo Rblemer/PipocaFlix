@@ -23,4 +23,3 @@ rootProject.name = "PipocaFlix"
 include(":app")
 include(":core:data")
 include(":core:domain")
- 

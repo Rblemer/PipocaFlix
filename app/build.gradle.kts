@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "br.com.pipocaflix"
+    namespace = "br.com.rblemer.pipocaflix"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "br.com.pipocaflix"
+        applicationId = "br.com.rblemer.pipocaflix"
         minSdk = 21
         targetSdk = 34
         versionCode = 1
