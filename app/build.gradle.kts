@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "br.com.rblemer.pipocaflix"
-        minSdk = 21
+        minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
     implementation(libs.material3)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -79,7 +80,7 @@ dependencies {
     kapt("com.google.dagger:hilt-android-compiler:2.46.1") //Do not change to kps, causing crash
 
     //Coil - Image loading
-//    implementation(libs.coil)
+    implementation(libs.coil)
 
     //Paging
     implementation("androidx.paging:paging-runtime:3.2.1")

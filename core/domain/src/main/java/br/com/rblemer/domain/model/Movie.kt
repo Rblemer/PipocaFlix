@@ -14,5 +14,4 @@ data class Movie(
     val isFavorite: Boolean = false
 ) {
     fun getPosterURL() = "https://image.tmdb.org/t/p/w500${poster_path}"
-    fun getReleaseYear() = release_date.substringBefore("-")
 }
