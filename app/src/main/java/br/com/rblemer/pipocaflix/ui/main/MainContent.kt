@@ -62,9 +62,9 @@ fun MainContent(darkTheme: Boolean, onThemeUpdated: () -> Unit) {
             startDestination = Screens.Home.route,
             modifier = Modifier.padding(paddingValues)
         ) {
-            composable(Screens.Home.route) { ScreenHome() }
-            composable(Screens.Favorites.route) { ScreenFavorite() }
-            composable(Screens.Search.route) { ScreenSearch() }
+            composable(Screens.Home.route) { ScreenHome(darkTheme = darkTheme) }
+            composable(Screens.Favorites.route) { ScreenFavorite(darkTheme = darkTheme) }
+            composable(Screens.Search.route) { ScreenSearch(darkTheme = darkTheme) }
         }
     }
 }

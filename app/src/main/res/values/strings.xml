@@ -9,12 +9,13 @@
     <string name="label_title">Título</string>
     <string name="label_original_title">Título original</string>
     <string name="label_overview">Resumo</string>
+    <string name="label_release_date">Estréia</string>
     <string name="label_votes">Votos</string>
     <string name="label_note">Nota</string>
-    <string name="label_mark_as_watched">Marcar como assistido</string>
-    <string name="label_mark_as_not_watched">Marcar como não assistido</string>
-    <string name="label_add_to_favorites">Adicionar aos favoritos</string>
-    <string name="label_remove_from_favorites">Remover dos favoritos</string>
+    <string name="label_mark_as_watched">Assistido</string>
+    <string name="label_mark_as_not_watched">Não assistido</string>
+    <string name="label_add_to_favorites">Adicionar favorito</string>
+    <string name="label_remove_from_favorites">Remover favorito</string>
 
     <string name="error_empty_response">Não há dados para serem exibidos aqui</string>
     <string name="error_no_network">Parece que não há conexão com a internet. Ligue o Wifi ou seus dados móveis e toque para tentar novamente</string>

@@ -1,10 +1,12 @@
-package br.com.rblemer.pipocaflix.ui.screen.home
+package br.com.rblemer.pipocaflix.ui.screen.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridScope
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
@@ -25,15 +27,24 @@ import br.com.rblemer.domain.model.Movie
 import br.com.rblemer.pipocaflix.ui.components.OnError
 import br.com.rblemer.pipocaflix.ui.components.OnLoading
 import br.com.rblemer.pipocaflix.ui.screen.detail.DialogDetail
+import br.com.rblemer.pipocaflix.ui.screen.home.MovieItem
 import br.com.rblemer.pipocaflix.ui.theme.dimen16Dp
 import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 
 @Composable
-fun ScreenHome(
+fun ScreenSearch(
     darkTheme: Boolean,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModelImpl = hiltViewModel()
+    viewModel: SearchViewModelImpl = hiltViewModel()
 ) {
+    Column(modifier = modifier.fillMaxSize()) {
+        SearchScreenSearchBar(viewModel = viewModel, modifier = Modifier.fillMaxWidth())
+        ScreenContent(viewModel = viewModel, modifier = Modifier.weight(1F), darkTheme = darkTheme)
+    }
+}
+
+@Composable
+fun ScreenContent(viewModel: SearchViewModelImpl, modifier: Modifier = Modifier, darkTheme: Boolean) {
     Box(
         modifier = modifier
             .background(MaterialTheme.colorScheme.background),
@@ -55,7 +66,7 @@ fun ScreenHome(
                     modifier = Modifier.fillMaxSize().padding(dimen16Dp),
                     error = error.error,
                     onClick = {
-                        viewModel.loadPopularMovieList()
+                        viewModel.search("")
                     }
                 )
             }
@@ -91,6 +102,24 @@ fun ScreenHome(
             )
         }
     }
+}
+
+@Composable
+fun SearchScreenSearchBar(viewModel: SearchViewModel, modifier: Modifier = Modifier) {
+    var searchFieldValue by rememberSaveable {
+        mutableStateOf("")
+    }
+    MovieSearchBar(
+        value = searchFieldValue,
+        onValueChanged = { query ->
+            searchFieldValue = query
+        },
+        onSearchRequested = {
+            viewModel.search(searchFieldValue)
+        },
+        modifier = modifier
+            .padding(start = dimen16Dp, top = dimen16Dp, end = dimen16Dp)
+    )
 }
 
 private fun LazyStaggeredGridScope.handleGridItems(
@@ -137,3 +166,4 @@ private fun LazyStaggeredGridScope.handleLoadState(uiState: LazyPagingItems<Movi
         }
     }
 }
+

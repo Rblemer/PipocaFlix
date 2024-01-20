@@ -13,10 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import br.com.rblemer.pipocaflix.R
-import br.com.rblemer.pipocaflix.ui.theme.dimen50Dp
 import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
+import br.com.rblemer.pipocaflix.ui.theme.dimen50Dp
 
 @Composable
 fun OnLoading(
@@ -40,10 +39,4 @@ fun OnLoading(
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun LoadingPreview() {
-    OnLoading()
 }
