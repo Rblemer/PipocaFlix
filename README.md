@@ -1,36 +1,41 @@
-<p align="center">
-<img src="https://i.imgur.com/4olQKn0.png" width="57%"/>
 </p>
-<h1 align="center">Jetflix</h1>
-<h4 align="center">Movie listing app that demonstrates various UI's written with Jetpack Compose using TheMovieDb API</h4>
+<h1 align="center">PipocaFlix</h1>
+O aplicativo PipocaFlix oferece aos usuários uma maneira fácil e conveniente de explorar o mundo do cinema. Ele utiliza dados da API do “The Movie Database”, uma base de dados de filmes amplamente reconhecida e respeitada, para criar uma lista abrangente de filmes.
+
+Ao abrir o PipocaFlix, os usuários são recebidos com uma interface de usuário intuitiva e atraente. A página inicial apresenta uma variedade de categorias de filmes para escolher, incluindo os mais recentes lançamentos, os mais populares, e uma seleção de filmes clássicos. Cada filme na lista vem com uma imagem de capa, uma breve sinopse, a classificação do filme.
+
+Além disso, o app também oferece recursos de personalização. Os usuários podem criar listas de filmes favoritos.
 
 </br>
 
 ## Screenshots
 
-<p>
-<img src="screenshots/1.gif" width="24%" height="40%"/>
-<img src="screenshots/2.gif" width="24%" height="40%"/>
-<img src="screenshots/3.gif" width="24%" height="40%"/>
-<img src="screenshots/4.gif" width="24%" height="40%"/>
-</p>
 
 
-## Download
 
-Go to [Play Store](https://play.google.com/store/apps/details?id=com.yasinkacmaz.jetflix) to download the latest APP.
+## Tecnologias utilizadas:
 
-Go to [Releases](https://github.com/yasinkacmaz/jetflix/releases) page to download the latest APK.
+- Material Design 3- Componentes e tema da aplicação
+- Hilt - Injeção de dependência
+- Coil - Carregamento de imagens
+- Arquitetura MVVM + Clean Architecture
+- Jetpack Compose - Desenvolvimento da UI
+- Navigation - Para navegação entre as telas
+- Kotlin KTS - Gerenciamento de dependências
+- Suporte ao "Modo Escuro"
+- Modularização da aplicação em "app", "domain" e "data"
+- LottieAnimation - Para adicionar arquivos animados
+- SharedPreferences - Armazenar dados primitivos privados em pares key-value.
 
-## Technologies
+## Architecture
 
-- [Kotlin](https://kotlinlang.org/) - %100 Kotlin
-- [Jetpack Compose](https://developer.android.com/jetpack/compose) for Declarative UI
-- [Accompanist](https://github.com/google/accompanist) for Compose UI Widgets
-- [Coil](https://github.com/coil-kt/coil) for image loading
-- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) for asynchronous operations
-- [StateFlow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-state-flow/)
-- [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
-- [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android) for Dependency Injection
-- [OkHttp](https://github.com/square/okhttp) and [Ktor](https://github.com/ktorio/ktor) for network operations
-- [TheMovieDb(Tmdb) Api](https://developers.themoviedb.org/3) for movies
+MVVM (Model View View-Model) + Clean Architecture
+
+## API
+
+PipocaFlix App usa a [TheMovieDb(Tmdb) Api](https://developers.themoviedb.org/3) para construir a API RESTful.
+
+## Pontos de melhoria
+- Adicionar os contentsDescriptions para melhoria da Acessibilidade. 
+- Criar a internacionalização das strings do app.
+- Adicionar mais teste.
