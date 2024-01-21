@@ -1,7 +1,5 @@
 package br.com.rblemer.pipocaflix.ui.screen.detail
 
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -30,7 +28,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -61,7 +58,6 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 fun DialogDetail(
     movie: Movie,
-    darkTheme: Boolean,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
     dialogViewModelImpl: DialogViewModelImpl = hiltViewModel()
@@ -86,8 +82,7 @@ fun DialogDetail(
                 onWatchedButtonClicked = { isWatched ->
                     dialogViewModelImpl.updateIsWatchedState(movie = movie.copy(isWatched = isWatched))
                 },
-                modifier = modifier,
-                darkTheme = darkTheme
+                modifier = modifier
             )
         }
     }
@@ -97,7 +92,6 @@ fun DialogDetail(
 @Composable
 private fun ScreenContent(
     movie: Movie,
-    darkTheme: Boolean,
     onDismiss: () -> Unit,
     isFavorite: Boolean,
     isWatched: Boolean,
@@ -118,7 +112,6 @@ private fun ScreenContent(
             ) {
                 AppBar(
                     modifier = Modifier,
-                    darkTheme = darkTheme,
                     onDismiss = onDismiss
                 )
                 DialogDetailTop(
@@ -143,8 +136,7 @@ private fun ScreenContent(
                     voteAverage = movie.vote_average,
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
-                        .padding(top = 8.dp),
-                    darkTheme = darkTheme
+                        .padding(top = 8.dp)
                 )
                 DialogDetailMiddle(
                     isWatched = isWatched,
@@ -154,8 +146,7 @@ private fun ScreenContent(
                     },
                     onWatchedButtonClicked = {
                         onWatchedButtonClicked(!isWatched)
-                    },
-                    darkTheme = darkTheme
+                    }
                 )
                 DialogDetailBottom(movie)
             }
@@ -164,18 +155,13 @@ private fun ScreenContent(
 }
 
 @Composable
-private fun AppBar(modifier: Modifier, darkTheme: Boolean, onDismiss: () -> Unit) {
+private fun AppBar(modifier: Modifier, onDismiss: () -> Unit) {
     val colors = MaterialTheme.colorScheme
-    val tint by animateColorAsState(
-        targetValue = if (darkTheme) colors.onSurface else colors.primary,
-        label = "",
-        animationSpec = tween(1000)
-    )
     IconButton(onClick = { onDismiss() }) {
         Icon(
             Icons.Filled.ArrowBack,
             contentDescription = null,
-            tint = tint,
+            tint = colors.primary,
             modifier = modifier,
         )
     }
@@ -253,13 +239,8 @@ private fun MovieField(name: String, value: String) {
 }
 
 @Composable
-private fun DialogDetailRateStars(voteAverage: Double, modifier: Modifier, darkTheme: Boolean) {
+private fun DialogDetailRateStars(voteAverage: Double, modifier: Modifier) {
     val colors = MaterialTheme.colorScheme
-    val tint by animateColorAsState(
-        targetValue = if (darkTheme) colors.onSurface else colors.primary,
-        label = "",
-        animationSpec = tween(1000)
-    )
     Row(modifier.padding(start = 4.dp)) {
         val maxVote = 10
         val starCount = 5
@@ -273,7 +254,7 @@ private fun DialogDetailRateStars(voteAverage: Double, modifier: Modifier, darkT
             Icon(
                 imageVector = asset,
                 contentDescription = null,
-                tint = tint,
+                tint = colors.primary,
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(2.dp))
@@ -283,7 +264,6 @@ private fun DialogDetailRateStars(voteAverage: Double, modifier: Modifier, darkT
 
 @Composable
 fun DialogDetailMiddle(
-    darkTheme: Boolean,
     onFavoriteButtonClicked: () -> Unit,
     onWatchedButtonClicked: () -> Unit,
     modifier: Modifier = Modifier,
@@ -291,11 +271,6 @@ fun DialogDetailMiddle(
     isFavorite: Boolean
 ) {
     val colors = MaterialTheme.colorScheme
-    val tint by animateColorAsState(
-        targetValue = if (darkTheme) colors.onSurface else colors.primary,
-        label = "",
-        animationSpec = tween(1000)
-    )
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -313,7 +288,7 @@ fun DialogDetailMiddle(
                 Icon(
                     imageVector = if (isWatched) Icons.Default.VisibilityOff else Icons.Default.Visibility,
                     contentDescription = null,
-                    tint = tint
+                    tint = colors.primary
                 )
                 Spacer(modifier = Modifier.width(dimen2Dp))
                 Text(
@@ -339,7 +314,7 @@ fun DialogDetailMiddle(
                 contentDescription = null,
                 modifier = Modifier
                     .height(IntrinsicSize.Max),
-                tint = tint
+                tint = colors.primary
             )
             Spacer(modifier = Modifier.width(dimen2Dp))
             Text(
@@ -395,7 +370,6 @@ fun ScreenContentPreview() {
         isWatched = true,
         onDismiss = { },
         onFavoriteButtonClicked = {},
-        onWatchedButtonClicked = {},
-        darkTheme = false
+        onWatchedButtonClicked = {}
     )
 }

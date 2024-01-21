@@ -10,29 +10,31 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import br.com.rblemer.pipocaflix.navigation.AppBottomNavBar
+import br.com.rblemer.pipocaflix.navigation.AppNavHost
 import br.com.rblemer.pipocaflix.ui.components.AppTopBar
-import br.com.rblemer.pipocaflix.ui.components.MoviesBottomNavigation
 import br.com.rblemer.pipocaflix.ui.screen.Screens
-import br.com.rblemer.pipocaflix.ui.screen.favorite.ScreenFavorite
-import br.com.rblemer.pipocaflix.ui.screen.home.ScreenHome
-import br.com.rblemer.pipocaflix.ui.screen.search.ScreenSearch
 
 val LocalNavController = compositionLocalOf<NavHostController> { error("No nav controller") }
+val LocalDarkTheme = compositionLocalOf { mutableStateOf(false) }
 @Composable
-fun MainContent(darkTheme: Boolean, onThemeUpdated: () -> Unit) {
+fun MainContent() {
     val navController = LocalNavController.current
 
-    val screensInBottomNav = listOf(
-        Screens.Home,
-        Screens.Search,
-        Screens.Favorites
-    )
     val colors = MaterialTheme.colorScheme
+    val state = rememberSaveable { (mutableStateOf(false)) }
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    when (navBackStackEntry?.destination?.route) {
+        Screens.Splash.route -> state.value = false
+        else -> state.value = true
+    }
 
     Scaffold(
         modifier = Modifier.statusBarsPadding(),
@@ -46,25 +48,26 @@ fun MainContent(darkTheme: Boolean, onThemeUpdated: () -> Unit) {
                         .background(colors.surface)
                         .padding(bottom = 2.dp)
                 ) {
-                    AppTopBar(darkTheme = darkTheme, onClick = onThemeUpdated)
+                    if (state.value) {
+                        AppTopBar(
+                            topBarState = state
+                        )
+                    }
                 }
             }
         },
         bottomBar = {
-            MoviesBottomNavigation(
-                darkTheme = darkTheme,
-                navController,
-                screensInBottomNav,
-            ) }
-    ) { paddingValues ->
-        NavHost(
-            navController = navController,
-            startDestination = Screens.Home.route,
-            modifier = Modifier.padding(paddingValues)
-        ) {
-            composable(Screens.Home.route) { ScreenHome(darkTheme = darkTheme) }
-            composable(Screens.Favorites.route) { ScreenFavorite(darkTheme = darkTheme) }
-            composable(Screens.Search.route) { ScreenSearch(darkTheme = darkTheme) }
+            if (state.value) {
+                AppBottomNavBar(
+                    navController = navController,
+                    bottomBarState = state
+                )
+            }
         }
+    ) { paddingValues ->
+        AppNavHost(
+            navController = navController,
+            modifier = Modifier.padding(paddingValues)
+        )
     }
 }

@@ -30,7 +30,6 @@ import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 
 @Composable
 fun ScreenHome(
-    darkTheme: Boolean,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModelImpl = hiltViewModel()
 ) {
@@ -84,7 +83,6 @@ fun ScreenHome(
         showMovieDetail?.let {
             DialogDetail(
                 movie = it,
-                darkTheme = darkTheme,
                 onDismiss = {
                     showMovieDetail = null
                 }

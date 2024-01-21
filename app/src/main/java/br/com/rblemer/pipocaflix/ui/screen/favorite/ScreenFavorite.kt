@@ -24,7 +24,6 @@ import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 
 @Composable
 fun ScreenFavorite(
-    darkTheme: Boolean,
     modifier: Modifier = Modifier,
     favoriteViewModel: FavoriteViewModelImpl = hiltViewModel()
 ) {
@@ -49,7 +48,6 @@ fun ScreenFavorite(
     showMovieDetail?.let {
         DialogDetail(
             movie = it,
-            darkTheme = darkTheme,
             onDismiss = {
                 showMovieDetail = null
             }
