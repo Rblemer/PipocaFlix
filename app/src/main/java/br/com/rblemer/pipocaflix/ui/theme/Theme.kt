@@ -2,7 +2,6 @@ package br.com.rblemer.pipocaflix.ui.theme
 
 import android.app.Activity
 import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.darkColorScheme
@@ -41,13 +40,17 @@ private val DarkColors = darkColorScheme(
 
 
 @Composable
-fun PipocaFlixTheme(darkTheme: Boolean = isSystemInDarkTheme(), dynamicColor: Boolean = true, content: @Composable () -> Unit) {
+fun PipocaFlixTheme(
+    isDarkTheme: Boolean = false,
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit
+) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            if (darkTheme) DarkColors else LightColors
+            if (isDarkTheme) DarkColors else LightColors
         }
 
-        darkTheme -> DarkColors
+        isDarkTheme -> DarkColors
         else -> LightColors
     }
     val view = LocalView.current
@@ -55,7 +58,7 @@ fun PipocaFlixTheme(darkTheme: Boolean = isSystemInDarkTheme(), dynamicColor: Bo
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = isDarkTheme
         }
     }
     MaterialTheme(
