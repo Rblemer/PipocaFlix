@@ -6,11 +6,11 @@ Ao abrir o PipocaFlix, os usuários são recebidos com uma interface de usuário
 
 Além disso, o app também oferece recursos de personalização. Os usuários podem criar listas de filmes favoritos.
 
-</br>
-
 ## Screenshots
 
-
+Sem DarkMode  | Com DarkMode 
+------------- | -------------
+<img src="https://github.com/Rblemer/PipocaFlix/assets/81179721/de75d34e-fe48-4943-90ea-4c0fae88c4af"/> <img src="https://github.com/Rblemer/PipocaFlix/assets/81179721/6e9f4be4-b2f3-43a7-a27b-69f3a9f7ff62"/>|<img src="https://github.com/Rblemer/PipocaFlix/assets/81179721/2155761f-9195-499d-9ef6-db802d60e202"/> <img src="https://github.com/Rblemer/PipocaFlix/assets/81179721/c49e2e6b-eabf-45e9-9cbf-814a785ec1a8"/>  
 
 
 ## Tecnologias utilizadas:
