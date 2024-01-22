@@ -39,3 +39,4 @@ PipocaFlix App usa a [TheMovieDb(Tmdb) Api](https://developers.themoviedb.org/3)
 - Adicionar os contentsDescriptions para melhoria da Acessibilidade. 
 - Criar a internacionalização das strings do app.
 - Adicionar mais teste.
+- Melhorar a busca, ir buscando filmes conforme for digitando o nome dos filme.
