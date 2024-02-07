@@ -1,8 +1,5 @@
 package br.com.rblemer.pipocaflix.ui.components
 
-import android.content.Context
-import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
