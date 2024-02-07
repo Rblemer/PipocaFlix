@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Star
@@ -157,13 +157,19 @@ private fun ScreenContent(
 @Composable
 private fun AppBar(modifier: Modifier, onDismiss: () -> Unit) {
     val colors = MaterialTheme.colorScheme
-    IconButton(onClick = { onDismiss() }) {
-        Icon(
-            Icons.Filled.ArrowBack,
-            contentDescription = null,
-            tint = colors.primary,
-            modifier = modifier,
-        )
+    Row(
+        Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.End
+    ) {
+        IconButton(onClick = { onDismiss() }) {
+            Icon(
+                Icons.Filled.Close,
+                contentDescription = null,
+                tint = colors.primary,
+                modifier = modifier
+            )
+        }
     }
 }
 
