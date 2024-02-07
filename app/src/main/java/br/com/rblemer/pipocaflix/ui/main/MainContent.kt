@@ -17,8 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import br.com.rblemer.pipocaflix.navigation.AppBottomNavBar
-import br.com.rblemer.pipocaflix.navigation.AppNavHost
+import br.com.rblemer.pipocaflix.ui.navigation.AppBottomNavBar
+import br.com.rblemer.pipocaflix.ui.navigation.AppNavHost
 import br.com.rblemer.pipocaflix.ui.components.AppTopBar
 import br.com.rblemer.pipocaflix.ui.screen.Screens
 
