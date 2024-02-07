@@ -25,7 +25,7 @@ import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 @Composable
 fun ScreenFavorite(
     modifier: Modifier = Modifier,
-    favoriteViewModel: FavoriteViewModelImpl = hiltViewModel()
+    favoriteViewModel: FavoriteViewModel = hiltViewModel()
 ) {
     val uiState = favoriteViewModel.favoriteState.collectAsState().value
 

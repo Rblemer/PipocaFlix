@@ -60,11 +60,11 @@ fun DialogDetail(
     movie: Movie,
     onDismiss: () -> Unit,
     modifier: Modifier = Modifier,
-    dialogViewModelImpl: DialogViewModelImpl = hiltViewModel()
+    dialogViewModel: DialogViewModel = hiltViewModel()
 ) {
-    dialogViewModelImpl.isFavorite(movie)
-    dialogViewModelImpl.isWatched(movie)
-    val uiState = dialogViewModelImpl.screenDialogState.collectAsState().value
+    dialogViewModel.isFavorite(movie)
+    dialogViewModel.isWatched(movie)
+    val uiState = dialogViewModel.screenDialogState.collectAsState().value
     when {
         uiState.isFavorite == null -> {
             OnLoading()
@@ -77,10 +77,10 @@ fun DialogDetail(
                 isFavorite = uiState.isFavorite,
                 isWatched = uiState.isWatched ?: false,
                 onFavoriteButtonClicked = { isFavorite ->
-                    dialogViewModelImpl.updateIsFavoriteState(movie = movie.copy(isFavorite = isFavorite))
+                    dialogViewModel.updateIsFavoriteState(movie = movie.copy(isFavorite = isFavorite))
                 },
                 onWatchedButtonClicked = { isWatched ->
-                    dialogViewModelImpl.updateIsWatchedState(movie = movie.copy(isWatched = isWatched))
+                    dialogViewModel.updateIsWatchedState(movie = movie.copy(isWatched = isWatched))
                 },
                 modifier = modifier
             )

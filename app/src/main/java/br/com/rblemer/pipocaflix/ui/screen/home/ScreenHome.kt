@@ -31,7 +31,7 @@ import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 @Composable
 fun ScreenHome(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModelImpl = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
     Box(
         modifier = modifier

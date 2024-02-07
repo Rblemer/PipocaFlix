@@ -34,7 +34,7 @@ import br.com.rblemer.pipocaflix.ui.theme.dimen8Dp
 @Composable
 fun ScreenSearch(
     modifier: Modifier = Modifier,
-    viewModel: SearchViewModelImpl = hiltViewModel()
+    viewModel: SearchViewModel = hiltViewModel()
 ) {
     Column(modifier = modifier.fillMaxSize()) {
         SearchScreenSearchBar(viewModel = viewModel, modifier = Modifier.fillMaxWidth())
@@ -43,7 +43,7 @@ fun ScreenSearch(
 }
 
 @Composable
-fun ScreenContent(viewModel: SearchViewModelImpl, modifier: Modifier = Modifier) {
+fun ScreenContent(viewModel: SearchViewModel, modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
             .background(MaterialTheme.colorScheme.background),
