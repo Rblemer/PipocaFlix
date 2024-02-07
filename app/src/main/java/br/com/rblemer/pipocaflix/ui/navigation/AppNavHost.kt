@@ -1,4 +1,4 @@
-package br.com.rblemer.pipocaflix.navigation
+package br.com.rblemer.pipocaflix.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
