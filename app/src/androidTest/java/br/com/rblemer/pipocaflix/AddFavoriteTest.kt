@@ -34,7 +34,7 @@ import br.com.rblemer.pipocaflix.TestTags.BOTTOM_NAV_FAVORITE
 import br.com.rblemer.pipocaflix.TestTags.BOTTOM_NAV_SEARCH
 import br.com.rblemer.pipocaflix.TestTags.MOVIE_ITEM
 import br.com.rblemer.pipocaflix.TestTags.SEARCH_TEXT_FIELD
-import br.com.rblemer.pipocaflix.navigation.AppBottomNavBar
+import br.com.rblemer.pipocaflix.ui.navigation.AppBottomNavBar
 import br.com.rblemer.pipocaflix.ui.main.MainActivity
 import br.com.rblemer.pipocaflix.ui.screen.Screens
 import br.com.rblemer.pipocaflix.ui.screen.favorite.ScreenFavorite
