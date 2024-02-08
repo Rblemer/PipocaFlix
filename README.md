@@ -35,6 +35,15 @@ MVVM (Model View View-Model) + Clean Architecture
 
 PipocaFlix App usa a [TheMovieDb(Tmdb) Api](https://developers.themoviedb.org/3) para construir a API RESTful.
 
+## Como usar
+- Clone o projeto
+- Crie uma conta na [TheMovieDb(Tmdb) Api](https://developers.themoviedb.org/3)
+- Pegue suas credenciais da sua [conta](https://www.themoviedb.org/settings/account)
+- Criar um arquivo na raiz do projeto como nome `local.properties`
+```kotlin
+  API_KEY="exampleApiKey"
+```
+
 ## Pontos de melhoria
 - Adicionar os contentsDescriptions para melhoria da Acessibilidade. 
 - Criar a internacionalização das strings do app.
