@@ -1,5 +1,6 @@
 package br.com.rblemer.data.remote
 
+import br.com.rblemer.data.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -11,6 +12,8 @@ import java.util.concurrent.TimeUnit
 object RetrofitConfig  {
 
     var service: MovieService = getMovieService()
+
+    private const val apiKey: String = BuildConfig.API_KEY
 
     private fun getRetrofitBuild() : Retrofit {
 
@@ -29,7 +32,7 @@ object RetrofitConfig  {
             .connectTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
-            .addInterceptor(ApiKeyInterceptor("00ac16343073d8f2aa30ffb5e7b8711c"))
+            .addInterceptor(ApiKeyInterceptor(apiKey))
             .addInterceptor(interceptor)
             .build()
     }

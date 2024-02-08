@@ -41,6 +41,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -93,11 +94,11 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
 
     //Testing
-    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.37")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.37")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48.1")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.3")
-    androidTestImplementation ("androidx.test:core-ktx:1.4.0")
-    androidTestImplementation ("androidx.test:runner:1.4.0")
+    androidTestImplementation("androidx.test.ext:junit:1.1.3")
+    androidTestImplementation("androidx.test:core-ktx:1.4.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
 
     //Room Database
     implementation("androidx.room:room-runtime:2.5.2")
@@ -105,5 +106,5 @@ dependencies {
     kapt("androidx.room:room-compiler:2.5.2")
 
     //Lottie
-    implementation("com.airbnb.android:lottie-compose:5.2.0")
+    implementation(libs.lottie.compose)
 }
