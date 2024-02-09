@@ -1,5 +1,9 @@
 package br.com.rblemer.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Movie(
     val adult: Boolean,
     val id: Int,
@@ -12,6 +16,6 @@ data class Movie(
     val vote_count: Int,
     val isWatched: Boolean = false,
     val isFavorite: Boolean = false
-) {
+): Parcelable {
     fun getPosterURL() = "https://image.tmdb.org/t/p/w500${poster_path}"
 }
