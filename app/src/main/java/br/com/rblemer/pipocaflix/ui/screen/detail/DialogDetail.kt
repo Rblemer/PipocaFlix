@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Favorite
@@ -99,6 +101,7 @@ private fun ScreenContent(
     onWatchedButtonClicked: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val scrollState = rememberScrollState()
 
     Dialog(
         onDismissRequest = { onDismiss() },
@@ -109,6 +112,7 @@ private fun ScreenContent(
                     .background(MaterialTheme.colorScheme.background)
                     .fillMaxWidth()
                     .padding(all = 16.dp)
+                    .verticalScroll(scrollState)
             ) {
                 AppBar(
                     modifier = Modifier,
