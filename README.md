@@ -1,5 +1,5 @@
 </p>
-<h1 style="color: red; text-align: center;">PipocaFlix</h1>
+<h1 style="color: red; align: center;">PipocaFlix</h1>
 O aplicativo PipocaFlix oferece aos usuários uma maneira fácil e conveniente de explorar o mundo do cinema. Ele utiliza dados da API do “The Movie Database”, uma base de dados de filmes amplamente reconhecida e respeitada, para criar uma lista abrangente de filmes.
 
 Ao abrir o PipocaFlix, os usuários são recebidos com uma interface de usuário intuitiva e atraente. A página inicial apresenta uma variedade de categorias de filmes para escolher, incluindo os mais recentes lançamentos, os mais populares, e uma seleção de filmes clássicos. Cada filme na lista vem com uma imagem de capa, uma breve sinopse, a classificação do filme.
